@@ -119,22 +119,17 @@ namespace Matching_Game
             firstClicked.ForeColor = firstClicked.BackColor;
             secondClicked.ForeColor = secondClicked.BackColor;
 
-            //hide firstClicked and secondClicked
-            //so the next time a label is
-            //clicked, the program knows it's the first click
+            // resets so the next cliks can be recorded. 
             firstClicked = null;
             secondClicked = null;
         }
 
         /// <summary> 
-        /// Check every icon to see if it is matched, by  
-        /// comparing its foreground color to its background color.  
-        /// If all of the icons are matched, the player wins 
+        /// to check for a winner it will check if all are unhide. 
         /// </summary>
         private void CheckForTheWinner()
         {
-            // Go through all of the labels in the TableLayoutPanel,  
-            // checking each one to see if its icon is matched 
+            // go thought it all a see if they are all matched.
             foreach (Control control in tableLayoutPanel1.Controls)
             {
                 Label iconLabel = control as Label;
@@ -147,9 +142,7 @@ namespace Matching_Game
             timer2.Stop();
             timer2.Enabled = false;
 
-            // If the loop didn’t return, it didn't find 
-            // any unmatched icons 
-            // That means the user won. Show a message and close the form
+            // if nothing is found that all have been match and user wins. 
             MessageBox.Show("You matched all the icons in " + timeCount + " seconds!", "Congratulations");
             Close();
         }
